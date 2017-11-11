@@ -1,12 +1,10 @@
 'use strict';
 
-
 const DEBUG = true;
 
 const CONTEXT_MENU = true;
 
 class ControlManager {
-
   constructor(gameManager) {
     this.gameManager = gameManager;
 
@@ -58,33 +56,6 @@ class ControlManager {
 
     window.addEventListener('keyup', (event) => { this.Key.onKeyup(event); }, false);
     window.addEventListener('keydown', (event) => { this.Key.onKeydown(event); }, false);
-
-    window.addEventListener('mousedown', () => {
-      // this.gameManager.playerManager.attack();
-    });
-
-
-    window.addEventListener('mousemove', (event) => {
-      // this.gameManager.playerManager.updatePlayerRotation(event.clientX, event.clientY);
-    });
-
-
-    ControlManager.debugOptions();
-  }
-
-  static debugOptions() {
-    if (DEBUG) {
-      // window.addEventListener('keyup', (event) => {
-      //   if (event.key === 'q') { this.gameManager.cameraManager.changeCameraMode(); }
-      // }, false);
-
-      window.addEventListener('keyup', (event) => {
-        if (event.key === 'z') {
-          // ClientEvents.addLargeNotification.dispatch('You are awesome');
-          // ClientEvents.addBloodEffect.dispatch(this.gameManager.agentManager.player.position);
-        }
-      }, false);
-    }
   }
 
   keyDown(key, action) {
@@ -94,27 +65,13 @@ class ControlManager {
   }
 
   update() {
-    // Player
-    // if (this.gameManager.agentManager.player) {
-    //   // this.keyDown(this.Key.W, this.gameManager.agentManager.player.moveForward);
-    //   // this.keyDown(this.Key.A, this.gameManager.agentManager.player.moveLeft);
-    //   // this.keyDown(this.Key.S, this.gameManager.agentManager.player.moveBackward);
-    //   // this.keyDown(this.Key.D, this.gameManager.agentManager.player.moveRight);
-    // }
-
-    this.updateDebug();
-  }
-
-  updateDebug() {
-    if (DEBUG) {
-      // Camera
-      this.keyDown(this.Key.I, this.gameManager.cameraManager.moveForward);
-      this.keyDown(this.Key.K, this.gameManager.cameraManager.moveBackward);
-      this.keyDown(this.Key.J, this.gameManager.cameraManager.moveLeft);
-      this.keyDown(this.Key.L, this.gameManager.cameraManager.moveRight);
-      this.keyDown(this.Key.O, this.gameManager.cameraManager.raiseCamera);
-      this.keyDown(this.Key.U, this.gameManager.cameraManager.lowerCamera);
-    }
+    // Camera
+    this.keyDown(this.Key.I, this.gameManager.cameraManager.moveForward);
+    this.keyDown(this.Key.K, this.gameManager.cameraManager.moveBackward);
+    this.keyDown(this.Key.J, this.gameManager.cameraManager.moveLeft);
+    this.keyDown(this.Key.L, this.gameManager.cameraManager.moveRight);
+    this.keyDown(this.Key.O, this.gameManager.cameraManager.raiseCamera);
+    this.keyDown(this.Key.U, this.gameManager.cameraManager.lowerCamera);
   }
 }
 

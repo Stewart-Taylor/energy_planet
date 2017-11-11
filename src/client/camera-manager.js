@@ -1,14 +1,8 @@
 'use strict';
 
-// const MathUtil = require('../shared/math-util');
-
-const FOLLOW_MODE = 1;
-const FREE_MODE = 2;
-
 const CAMERA_SPEED = 0.1;
 
 class CameraManager {
-
   constructor(scene, _gameManager) {
     this.gameManager = _gameManager;
     const fov = 60;
@@ -16,12 +10,9 @@ class CameraManager {
     const near = 1;
     const far = 10000;
 
-    this.mode = FREE_MODE;
-
     this.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
     this.camera.position.set(0, 1.5, 1.2);
-    // this.camera.position.set(1100, 700, 1900);
     scene.add(this.camera);
 
 
@@ -43,14 +34,6 @@ class CameraManager {
 
   _updateCameraDebugInfo() {
     $('#camera-data').html(`(${this.camera.position.x},${this.camera.position.y},${this.camera.position.z})`);
-  }
-
-  changeCameraMode() {
-    if (this.mode === FOLLOW_MODE) {
-      this.mode = FREE_MODE;
-    } else {
-      this.mode = FOLLOW_MODE;
-    }
   }
 
   raiseCamera() {

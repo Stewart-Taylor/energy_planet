@@ -19,7 +19,7 @@ class VisualManager {
   }
 
   initialize(_player) {
-    console.log('inited');
+    console.log('Visual Manager initialized');
     visualManager = this;
 
     this.renderer = null;

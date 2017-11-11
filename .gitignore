@@ -53,3 +53,6 @@ package-lock.json
 bower_components
 src/server/assets/_css
 src/server/assets/_js
+
+# Temporary country files
+temp
