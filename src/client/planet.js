@@ -43,13 +43,13 @@ class Planet {
     this.earthMesh2 = new THREE.Mesh(geometry, material2)
 
 
-    material2.map = THREE.ImageUtils.loadTexture('assets/sprites/map3.png');
-    material2.bumpMap    = THREE.ImageUtils.loadTexture('assets/sprites/map3_bump.png');
+    material2.map = THREE.ImageUtils.loadTexture('assets/sprites/usa.png');
+    material2.bumpMap    = THREE.ImageUtils.loadTexture('assets/sprites/cloud_bump.jpg');
     material2.bumpScale = 0.1;
 
     // material2.specularMap = THREE.ImageUtils.loadTexture('assets/sprites/specular_map.jpg');
     // material2.specular  = new THREE.Color('grey')
-    // material2.opacity = 0.9;
+    material2.opacity = 0.8;
     material2.transparent = true;
 
     this.scene.add(this.earthMesh2)
