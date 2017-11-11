@@ -1,0 +1,51 @@
+{
+  "name": "energyplanet",
+  "version": "0.0.1",
+  "description": "3D visual representation of the worlds renewable energy usage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hackbit/nko2017-energyplanet.git"
+  },
+  "keywords": [
+    "WebGL"
+  ],
+  "author": "Stewart Taylor",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Hackbit/nko2017-energyplanet/issues"
+  },
+  "homepage": "https://github.com/Hackbit/nko2017-energyplanet#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.0",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "node-sass-middleware": "^0.11.0",
+    "serve-favicon": "^2.3.2",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^13.3.0",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-live-server": "0.0.30",
+    "gulp-sourcemaps": "^2.4.0",
+    "gulp-util": "^3.0.8",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
