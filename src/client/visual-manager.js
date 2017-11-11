@@ -3,6 +3,7 @@
 const LightManager = require('./light-manager');
 const CameraManager = require('./camera-manager');
 const World = require('./world');
+const Planet = require('./planet');
 const ControlManager = require('./control-manager');
 
 const GAME_FPS = 50;
@@ -31,13 +32,15 @@ class VisualManager {
     this.maxFrameSkip = 10;
     this.nextGameTick = (new Date()).getTime();
 
-    this.world = new World(this.scene);
+    // this.world = new World(this.scene);
+    this.planet = new Planet(this.scene);
     this.lightManager = new LightManager(this.scene);
     this.controlManager = new ControlManager(this);
     this.cameraManager = new CameraManager(this.scene, this);
     this.initializeGraphics();
 
-    this.world.initialize();
+    // this.world.initialize();
+    this.planet.initialize();
     this.render();
   }
 
@@ -89,6 +92,7 @@ class VisualManager {
   update() {
     visualManager.controlManager.update();
     this.cameraManager.update();
+    this.planet.update();
   }
 }
 

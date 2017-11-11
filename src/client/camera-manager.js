@@ -5,6 +5,8 @@
 const FOLLOW_MODE = 1;
 const FREE_MODE = 2;
 
+const CAMERA_SPEED = 0.1;
+
 class CameraManager {
 
   constructor(scene, _gameManager) {
@@ -18,7 +20,7 @@ class CameraManager {
 
     this.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
-    this.camera.position.set(180, 370, 431);
+    this.camera.position.set(0, 1.5, 1.2);
     // this.camera.position.set(1100, 700, 1900);
     scene.add(this.camera);
 
@@ -37,25 +39,6 @@ class CameraManager {
 
   update() {
 
-
-
-    // $('#camera-data').html(`(${this.camera.position.x},${this.camera.position.y},${this.camera.position.z})`);
-
-    // this.camera.lookAt(new THREE.Vector3(0,0,150));
-    // if (this.mode === FOLLOW_MODE) {
-    //   if (this.gameManager.agentManager.player) {
-    //     this.camera.position.x = this.gameManager.agentManager.player.parent.position.x;
-    //     this.camera.position.z = this.gameManager.agentManager.player.parent.position.z + 60;
-
-    //     if (this.gameManager.agentManager.player.movementState === 2) {
-    //       this.camera.position.y = MathUtil.lerp(this.camera.position.y, 130, 0.005);
-    //     } else {
-    //       this.camera.position.y = MathUtil.lerp(this.camera.position.y, 100, 0.005);
-    //     }
-
-    //     this.camera.lookAt(this.gameManager.agentManager.player.parent.position);
-    //   }
-    // }
   }
 
   _updateCameraDebugInfo() {
@@ -71,32 +54,32 @@ class CameraManager {
   }
 
   raiseCamera() {
-    this.camera.position.y += 1;
+    this.camera.position.y += CAMERA_SPEED;
     this._updateCameraDebugInfo();
   }
 
   lowerCamera() {
-    this.camera.position.y -= 1;
+    this.camera.position.y -= CAMERA_SPEED;
     this._updateCameraDebugInfo();
   }
 
   moveLeft() {
-    this.camera.position.x -= 1;
+    this.camera.position.x -= CAMERA_SPEED;
     this._updateCameraDebugInfo();
   }
 
   moveRight() {
-    this.camera.position.x += 1;
+    this.camera.position.x += CAMERA_SPEED;
     this._updateCameraDebugInfo();
   }
 
   moveForward() {
-    this.camera.position.z -= 1;
+    this.camera.position.z -= CAMERA_SPEED;
     this._updateCameraDebugInfo();
   }
 
   moveBackward() {
-    this.camera.position.z += 1;
+    this.camera.position.z += CAMERA_SPEED;
     this._updateCameraDebugInfo();
   }
 }
