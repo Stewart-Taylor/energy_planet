@@ -41,7 +41,7 @@ class Planet {
     this.earthMesh2 = new THREE.Mesh(geometry, material2)
 
 
-    material2.map = THREE.ImageUtils.loadTexture('assets/sprites/usa.png');
+    material2.map = THREE.ImageUtils.loadTexture('assets/sprites/United_States.png');
     material2.bumpMap    = THREE.ImageUtils.loadTexture('assets/sprites/cloud_bump.jpg');
     material2.bumpScale = 0.1;
 

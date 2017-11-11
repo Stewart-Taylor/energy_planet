@@ -27,6 +27,7 @@ function createEnergyImage(country, amount) {
 function processRow(country, amount) {
   return new Promise((resolve) => {
     let cleanedName = country.replace(' ', '_');
+    // TODO: remove these chars too [. ,]
 
     fs.stat(`../../countries/${cleanedName}.png`, (err, stat) => {
      if(err === null) {

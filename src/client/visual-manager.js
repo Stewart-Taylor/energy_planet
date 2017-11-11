@@ -2,7 +2,6 @@
 
 const LightManager = require('./light-manager');
 const CameraManager = require('./camera-manager');
-const World = require('./world');
 const Planet = require('./planet');
 const ControlManager = require('./control-manager');
 
