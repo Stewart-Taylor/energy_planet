@@ -67,8 +67,69 @@ function loadData() {
   });
 }
 
+
+
+
+
+
+
+function combineMaps(){
+  var blend = require('blend');
+
+  let imageBuffers = [];
+
+
+  let files = fs.readdirSync('../../temp/');
+
+  files = files.filter((file) => {
+    if (file.includes('.png')) {
+      return file;
+    }
+  return false;
+});
+
+  console.log(files);
+
+  for (let i = 0; i < files.length; i++) {
+    imageBuffers[i] = fs.readFileSync(`../../temp/${files[i]}`);
+  }
+
+  blend(imageBuffers, (err, result) => {
+    console.log(err);
+    Jimp.read(result,  (err, img) => {
+      if (err) throw err;
+      img.write(`../../temp2/complete.png`, () => {
+        console.log('ya done now');
+      });
+
+      img.write(`../../src/server/assets/sprites/complete.png`, () => {
+        console.log('ya done now 2');
+      });
+
+    });
+      // result contains the blended result image compressed as PNG.
+  });
+
+
+
+  // mergeImages([
+  //   '../../countries/Mexico.png',
+  //   '../../countries/United_States.png',
+  //   '../../countries/Canada.png'
+  // ]).then((b64) => {
+  //   Jimp.read(b64,  (err, img) => {
+  //     if (err) throw err;
+  //     img
+  //     .write(`../../temp/complete.png`, () => {
+  //       resolve();
+  //     });
+  //   });
+  // })
+}
+
 function start() {
-  loadData();
+  // loadData();
+  combineMaps();
 }
 
 start();

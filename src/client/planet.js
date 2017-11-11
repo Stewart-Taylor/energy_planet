@@ -1,6 +1,6 @@
 'use strict';
 
-const ENABLE_ROTATION = false;
+const ENABLE_ROTATION = true;
 
 class Planet {
   constructor(_scene) {
@@ -29,8 +29,8 @@ class Planet {
     material.bumpMap    = THREE.ImageUtils.loadTexture('assets/sprites/bump_map.jpg');
     material.bumpScale = 0.05;
 
-    material.specularMap = THREE.ImageUtils.loadTexture('assets/sprites/specular_map.jpg');
-    material.specular  = new THREE.Color('grey')
+    // material.specularMap = THREE.ImageUtils.loadTexture('assets/sprites/specular_map.jpg');
+    // material.specular  = new THREE.Color('grey')
 
     this.scene.add(this.earthMesh)
 
@@ -41,7 +41,7 @@ class Planet {
     this.earthMesh2 = new THREE.Mesh(geometry, material2)
 
 
-    material2.map = THREE.ImageUtils.loadTexture('assets/sprites/United_States.png');
+    material2.map = THREE.ImageUtils.loadTexture('assets/sprites/complete.png');
     material2.bumpMap    = THREE.ImageUtils.loadTexture('assets/sprites/cloud_bump.jpg');
     material2.bumpScale = 0.1;
 

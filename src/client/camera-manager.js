@@ -7,7 +7,7 @@ class CameraManager {
     this.gameManager = _gameManager;
     const fov = 60;
     const aspect = window.innerWidth / window.innerHeight;
-    const near = 1;
+    const near = 0.1;
     const far = 10000;
 
     this.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
