@@ -154,11 +154,11 @@ function combineMaps(){
 }
 
 function start() {
-  loadData();
+  // loadData();
   // loadData().then(() => {
   //   combineMaps();
   // })
-  // combineMaps();
+  combineMaps();
 }
 
 start();
