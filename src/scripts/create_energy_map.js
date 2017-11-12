@@ -15,7 +15,7 @@ function createEnergyImage(country, amount) {
         if (err) throw err;
         // img.brightness(fadeAmount)
         // .gaussian(30)
-        img.color([ { apply: 'lighten', params: [ 50 ] } ])
+        // img.color([ { apply: 'lighten', params: [ 50 ] } ])
         img.fade(fadeAmount)
         .write(`../../temp/${country}.png`, () => {
           resolve();
@@ -113,7 +113,7 @@ function combineMaps(){
     Jimp.read(result,  (err, img) => {
       if (err) throw err;
       img
-      .gaussian(20)
+      .gaussian(5)
       .write(`../../src/server/assets/sprites/complete.png`, () => {
         console.log('complete');
       });
@@ -140,10 +140,11 @@ function combineMaps(){
 }
 
 function start() {
+  loadData();
   // loadData().then(() => {
   //   combineMaps();
   // })
-  combineMaps();
+  // combineMaps();
 }
 
 start();

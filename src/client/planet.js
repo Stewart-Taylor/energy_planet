@@ -36,26 +36,30 @@ class Planet {
 
 
 
-    var geometry   = new THREE.SphereGeometry(0.52, 32, 32)
+    var geometry   = new THREE.SphereGeometry(0.51, 32, 32)
 
     // var uniforms = {}; //THREE.UniformsUtils.merge( [basicShader.uniforms] );
     // uniforms['map'].value = THREE.ImageUtils.loadTexture( 'assets/sprites/complete.png' );
     // uniforms['size'].value = 100;
     // uniforms['opacity'].value = 0.5;
     // uniforms['psColor'].value = new THREE.Color( 0xffffff );
+    const texturePath = 'assets/sprites/test.png';
+    // const texturePath = 'assets/sprites/complete.png';
+
+
 
     this.material2 = new THREE.ShaderMaterial( {
 
       uniforms: {
-        bufferTexture: { type: "t", value: THREE.ImageUtils.loadTexture('assets/sprites/complete.png') },
+        bufferTexture: { type: "t", value: THREE.ImageUtils.loadTexture(texturePath) },
         time: { type: "f", value: 0.0 },
         scale:  { type: "v2", value: new THREE.Vector2( 50, 50 ) }
-        // opacity: { value: 0.5 },
+        // opacity: { value: 0.5 }
         // resolution: { value: new THREE.Vector2() }
 
       },
       blending: THREE.NormalBlending,
-      depthTest: false,
+      depthTest: true,
       transparent: true,
 
 
@@ -94,7 +98,8 @@ class Planet {
       // this.earthMesh2.rotation.y += 0.001;
     }
 
-    this.material2.uniforms.time.value += 0.001;
+    // this.material2.uniforms.time.value += 0.001;
+    this.material2.uniforms.time.value += 0.0025;
   }
 }
 

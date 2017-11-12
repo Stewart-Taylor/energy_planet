@@ -159,7 +159,9 @@ gl_FragColor.w = 0.9;
 
     vec4 t0 = texture2D(bufferTexture, ovUv);
 
-
+    // t0.r = t0.r * 0.1;
+    // t0.g = t0.g * 0.1;
+    // t0.b = t0.b * 0.1;
 
     // if (gl_FragColor.w < 0.086) {
     //   // discard;
@@ -177,6 +179,7 @@ gl_FragColor.w = 0.9;
 
       vec4 t1 = vec4( vec3( n, n, n ), 1 );
       t1.w = t1.r / 0.2;
+      // t1 = mix(t1, t1, t0.r);
 
       // t1 = t1 / 3.0
       // float blackness = (t1.r + t1.g + t1.b) / 3.0;
@@ -185,9 +188,16 @@ gl_FragColor.w = 0.9;
 
       float m = (1.0 + sin(time * 0.5)) / 2.0;
 
+      // vec4 gl_FragColor = mix(t0, t1, t0.a * 0.5);
       // gl_FragColor = t1;
-       gl_FragColor = mix(t0, t1, t0.a);
-
+       vec4 temp = mix(t0, t1, t0.a * 0.5);
+        // temp = mix(temp, t0, 0.5);
+       // gl_FragColor mix(temp, t1, t0.r / 5.0);
+       // gl_FragColor = mix(temp, t1, t0.r / 5.0);
+       temp.r = temp.r + 0.3;
+       temp.g = temp.g + 0.3;
+       temp.b = temp.b + 0.3;
+       gl_FragColor = temp;
        // if (gl_FragColor.r < 0.1) {
        //  discard;
        // }
