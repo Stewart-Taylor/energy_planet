@@ -17,5 +17,7 @@ module.exports = () => {
 
   gulp.watch([
     'src/server/**/*',
+    '!src/server/views/*',
+    '!src/server/assets/**/*',
   ], ['restart-server']);
 };
