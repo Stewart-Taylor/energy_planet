@@ -52,7 +52,7 @@ class Planet {
     // uniforms['opacity'].value = 0.5;
     // uniforms['psColor'].value = new THREE.Color( 0xffffff );
     // const texturePath = 'assets/sprites/test.png';
-    const texturePath = 'assets/sprites/complete.png';
+    const texturePath = 'assets/sprites/years/year_2014.png';
 
 
 
