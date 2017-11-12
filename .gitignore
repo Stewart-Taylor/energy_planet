@@ -30,8 +30,7 @@ build/Release
 *.DS_Store
 
 # Dist
-dist
-# src/server/assets/dist
+
 
 # Dependency directories
 node_modules
