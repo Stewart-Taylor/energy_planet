@@ -35,21 +35,9 @@ function createEnergyImage(country, amount, year) {
 function processRow(country, amount, year) {
   return new Promise((resolve) => {
     let cleanedName = country;
-    // TODO clean this up
-    cleanedName = cleanedName.replace(' ', '_');
-    cleanedName = cleanedName.replace(' ', '_');
-    cleanedName = cleanedName.replace(' ', '_');
-    cleanedName = cleanedName.replace(' ', '_');
-    cleanedName = cleanedName.replace('.', '');
-    cleanedName = cleanedName.replace('.', '');
-    cleanedName = cleanedName.replace('.', '');
-    cleanedName = cleanedName.replace('.', '');
-    cleanedName = cleanedName.replace('.', '');
-    cleanedName = cleanedName.replace('.', '');
-    cleanedName = cleanedName.replace(',', '');
-    cleanedName = cleanedName.replace(',', '');
-    cleanedName = cleanedName.replace(',', '');
-    cleanedName = cleanedName.replace(',', '');
+    cleanedName = cleanedName.split(' ').join('_');
+    cleanedName = cleanedName.split('.').join('');
+    cleanedName = cleanedName.split(',').join('');
 
     fs.stat(`../../countries/${cleanedName}.png`, (err) => {
       if (err === null) {
@@ -159,13 +147,14 @@ function processYear(year) {
  * Currently only 2014 supported
  */
 function start() {
-  if (DEBUG_MODE) {
-    processYear(2014);
-  } else {
-    for (let i = 1990; i < 2015; i += 1) {
-      processYear(i);
-    }
-  }
+  processYear(2014);
+  // if (DEBUG_MODE) {
+  //   processYear(2014);
+  // } else {
+  //   for (let i = 1990; i < 2015; i += 1) {
+  //     processYear(i);
+  //   }
+  // }
 }
 
 start();

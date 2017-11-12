@@ -1,1 +1,11 @@
-smoke-vertex-shader.ejs
+<script type="x-shader/x-vertex" id="vertexShader">
+  varying vec2 vUv;
+  varying vec2 ovUv;
+  uniform vec2 scale;
+
+  void main( void ) {
+    ovUv = uv;
+    vUv = uv * scale;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+</script>

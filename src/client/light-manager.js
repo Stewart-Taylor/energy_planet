@@ -1,10 +1,5 @@
 'use strict';
 
-const LIGHT_X = 20;
-const LIGHT_Y = 150;
-const LIGHT_Z = 90;
-const AMBIENT_LIGHT = 0.8;
-
 class LightManager {
   constructor(scene) {
     this.scene = scene;
@@ -18,10 +13,6 @@ class LightManager {
 
     this.scene.add(this.light);
     this.light.castShadow = true;
-
-
-    // var light2 = new THREE.HemisphereLight( 0xffffbb, 0x080820, 0.3 );
-    // scene.add( light2 );
   }
 }
 
