@@ -57,7 +57,7 @@ class Planet {
       uniforms: {
         bufferTexture: { type: 't', value: THREE.ImageUtils.loadTexture(texturePath) },
         time: { type: 'f', value: 0.0 },
-        scale: { type: 'v2', value: new THREE.Vector2(100, 100) }
+        scale: { type: 'v2', value: new THREE.Vector2(30, 30) }
       },
       blending: THREE.NormalBlending,
       depthTest: true,
@@ -77,6 +77,7 @@ class Planet {
   }
 
   selectSmokeMap(year) {
+    this.selectedYear = year;
     this.smokeMesh.material = this.smokeMaterials[year];
   }
 
@@ -85,6 +86,7 @@ class Planet {
       this.earthMesh.rotation.y += 0.002;
       this.smokeMesh.rotation.y += 0.002;
     }
+    this.smokeMaterials[this.selectedYear].uniforms.time.value += 0.003;
   }
 }
 

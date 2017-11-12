@@ -12,6 +12,7 @@ const YEAR_BASE = 2014; // 2014
 const BLUR_SIZE = 5;
 const DEBUG_MODE = false;
 const SINGLE_YEAR = false;
+const LOG_SCALE = true;
 
 /*
  * Creates a map image of the country based on renewable energy usage
@@ -19,7 +20,21 @@ const SINGLE_YEAR = false;
  */
 function createEnergyImage(country, amount, year) {
   return new Promise((resolve) => {
-    const fadeAmount = amount / 100;
+    let fadeAmount;
+    let usedAmount = amount;
+    if (LOG_SCALE) {
+      usedAmount = amount;
+      if (usedAmount < 1) {
+        usedAmount = 1.1;
+      }
+      const logValue = Math.log(usedAmount) / 2;
+      fadeAmount = logValue / 4.605170185988092;
+      if (fadeAmount === 0) {
+        fadeAmount = 0.1;
+      }
+    } else {
+      fadeAmount = amount / 100;
+    }
     Jimp.read(`../../countries/${country}.png`, (err, img) => {
       if (err) throw err;
       img.fade(fadeAmount)

@@ -102,3 +102,30 @@ body {
     background:  #8BC34A;
     cursor: pointer;
 }
+
+.sources-body {
+  background: #F5F5F5;
+  overflow: auto;
+}
+
+.sources-container {
+  margin: 20px;
+}
+
+.sources-img-container {
+
+}
+
+.sources-img-box {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sources-img {
+  border: 1px solid;
+  width: auto;
+  height: 125px;
+}
