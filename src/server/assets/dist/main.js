@@ -121,14 +121,14 @@ THREE.OrbitControls = function (object, domElement) {
   // This option actually enables dollying in and out; left as "zoom" for backwards compatibility.
   // Set to false to disable zooming
   this.enableZoom = true;
-  this.zoomSpeed = 1.0;
+  this.zoomSpeed = 0.5;
 
   // Set to false to disable rotating
   this.enableRotate = true;
   this.rotateSpeed = 1.0;
 
   // Set to false to disable panning
-  this.enablePan = true;
+  this.enablePan = false;
   this.keyPanSpeed = 7.0; // pixels moved per arrow key push
 
   // Set to true to automatically rotate around the target
@@ -1127,7 +1127,7 @@ class Planet {
       uniforms: {
         bufferTexture: { type: 't', value: THREE.ImageUtils.loadTexture(texturePath) },
         time: { type: 'f', value: 0.0 },
-        scale: { type: 'v2', value: new THREE.Vector2(100, 100) }
+        scale: { type: 'v2', value: new THREE.Vector2(30, 30) }
       },
       blending: THREE.NormalBlending,
       depthTest: true,
@@ -1147,6 +1147,7 @@ class Planet {
   }
 
   selectSmokeMap(year) {
+    this.selectedYear = year;
     this.smokeMesh.material = this.smokeMaterials[year];
   }
 
@@ -1155,6 +1156,7 @@ class Planet {
       this.earthMesh.rotation.y += 0.002;
       this.smokeMesh.rotation.y += 0.002;
     }
+    this.smokeMaterials[this.selectedYear].uniforms.time.value += 0.003;
   }
 }
 
