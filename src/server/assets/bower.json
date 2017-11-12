@@ -1,0 +1,29 @@
+{
+  "name": "energyplanet",
+  "description": "",
+  "authors": ["Stewart Taylor"],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-sites": "6.2.4"
+  },
+  "install": {
+    "path": {
+      "js": "_js/",
+      "css": "_css/"
+    },
+    "sources": {
+      "foundation-sites": [
+        "bower_components/foundation-sites/dist/foundation.min.css",
+        "bower_components/foundation-sites/dist/foundation.min.js"
+      ]
+    }
+  }
+}

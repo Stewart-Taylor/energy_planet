@@ -1,0 +1,19 @@
+<% include shaders/smoke-vertex-shader.ejs %>
+<% include shaders/smoke-fragment-shader.ejs %>
+
+<div id="display-area">
+  <div class="display-text-area">
+    <h1 class="main-header">Energy Planet</h1>
+    <p class="description-area">Displays each countries use of renewable energy.
+    Less smoke means more renewable energy is being used in that area.
+    </p>
+
+  </div>
+  <canvas id='display-canvas'></canvas>
+
+  <% include footer.ejs %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/assets/_js/three.js"></script>
+  <script src="/assets/dist/main.js"></script>
+</div>
