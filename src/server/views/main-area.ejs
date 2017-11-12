@@ -194,9 +194,12 @@ gl_FragColor.w = 0.9;
         // temp = mix(temp, t0, 0.5);
        // gl_FragColor mix(temp, t1, t0.r / 5.0);
        // gl_FragColor = mix(temp, t1, t0.r / 5.0);
-       temp.r = temp.r + 0.3;
-       temp.g = temp.g + 0.3;
-       temp.b = temp.b + 0.3;
+       temp.r = temp.r + 0.4;
+       temp.g = temp.g + 0.4;
+       temp.b = temp.b + 0.4;
+      temp.a = temp.a / 2.0;
+
+
        gl_FragColor = temp;
        // if (gl_FragColor.r < 0.1) {
        //  discard;

@@ -9,12 +9,12 @@ class Planet {
     // Graphical Properties
     // fog must be added to scene before first render
     // this.scene.fog = new THREE.FogExp2('#000', 0.00025);
-    // this.createSkyBox();
+    this.createSkyBox();
   }
 
   createSkyBox() {
     const skyBoxGeometry = new THREE.BoxGeometry(10, 10, 10);
-    const skyBoxMaterial = new THREE.MeshBasicMaterial({ color: '#000', side: THREE.BackSide });
+    const skyBoxMaterial = new THREE.MeshBasicMaterial({ color: '#111', side: THREE.BackSide });
     const skyBox = new THREE.Mesh(skyBoxGeometry, skyBoxMaterial);
     this.scene.add(skyBox);
   }
@@ -35,6 +35,14 @@ class Planet {
     this.scene.add(this.earthMesh)
 
 
+    var geometry3   = new THREE.SphereGeometry(0.52, 32, 32)
+    var material3 = new THREE.MeshPhongMaterial()
+    this.glowMesh = new THREE.Mesh(geometry, material)
+
+
+    this.scene.add(this.glowMesh)
+
+
 
     var geometry   = new THREE.SphereGeometry(0.51, 32, 32)
 
@@ -43,8 +51,8 @@ class Planet {
     // uniforms['size'].value = 100;
     // uniforms['opacity'].value = 0.5;
     // uniforms['psColor'].value = new THREE.Color( 0xffffff );
-    const texturePath = 'assets/sprites/test.png';
-    // const texturePath = 'assets/sprites/complete.png';
+    // const texturePath = 'assets/sprites/test.png';
+    const texturePath = 'assets/sprites/complete.png';
 
 
 

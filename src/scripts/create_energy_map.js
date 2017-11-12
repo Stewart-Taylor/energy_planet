@@ -5,7 +5,8 @@ const parse = require('csv-parse');
 const Jimp = require('jimp');
 
 const DATA_PATH = '../../energy_data/energy_data.csv';
-const YEAR_ROW = 58;
+const YEAR_ROW = 58; // 2014
+// const YEAR_ROW = 34; // 1990
 
 
 function createEnergyImage(country, amount) {
@@ -140,11 +141,11 @@ function combineMaps(){
 }
 
 function start() {
-  loadData();
+  // loadData();
   // loadData().then(() => {
   //   combineMaps();
   // })
-  // combineMaps();
+  combineMaps();
 }
 
 start();

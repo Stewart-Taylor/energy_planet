@@ -5,6 +5,8 @@ const CameraManager = require('./camera-manager');
 const Planet = require('./planet');
 const ControlManager = require('./control-manager');
 
+const orbitalControls = require('./lib/orbital-controls');
+
 const GAME_FPS = 50;
 
 const VISUAL_AREA_DIV_ID = 'display-area';
@@ -64,6 +66,11 @@ class VisualManager {
     this.renderer.shadowMapHeight = 2048;
 
     document.getElementById(VISUAL_AREA_DIV_ID).appendChild(this.renderer.domElement);
+
+
+
+    let controls = THREE.OrbitControls(this.cameraManager.camera, canvasElement);
+    // controls.addEventListener( 'change', render ); // remove when using animation loop
   }
 
   render() {
