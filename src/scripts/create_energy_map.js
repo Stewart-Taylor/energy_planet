@@ -28,8 +28,20 @@ function createEnergyImage(country, amount) {
 function processRow(country, amount) {
   return new Promise((resolve) => {
     let cleanedName = country;
+    // TODO clean this up
+    cleanedName = cleanedName.replace(' ', '_');
+    cleanedName = cleanedName.replace(' ', '_');
+    cleanedName = cleanedName.replace(' ', '_');
     cleanedName = cleanedName.replace(' ', '_');
     cleanedName = cleanedName.replace('.', '');
+    cleanedName = cleanedName.replace('.', '');
+    cleanedName = cleanedName.replace('.', '');
+    cleanedName = cleanedName.replace('.', '');
+    cleanedName = cleanedName.replace('.', '');
+    cleanedName = cleanedName.replace('.', '');
+    cleanedName = cleanedName.replace(',', '');
+    cleanedName = cleanedName.replace(',', '');
+    cleanedName = cleanedName.replace(',', '');
     cleanedName = cleanedName.replace(',', '');
 
     fs.stat(`../../countries/${cleanedName}.png`, (err, stat) => {
@@ -38,6 +50,7 @@ function processRow(country, amount) {
         console.log('Processing country', cleanedName, 'renewable energy usage', amount);
         return createEnergyImage(cleanedName, amount);
       } else if(err.code == 'ENOENT') {
+        // console.log('country does not exist', cleanedName);
         resolve();
           // file does not exist
           // fs.writeFile('log.txt', 'Some log\n');
@@ -141,11 +154,11 @@ function combineMaps(){
 }
 
 function start() {
-  // loadData();
+  loadData();
   // loadData().then(() => {
   //   combineMaps();
   // })
-  combineMaps();
+  // combineMaps();
 }
 
 start();
