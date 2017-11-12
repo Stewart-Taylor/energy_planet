@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "strict": 0,
+    "comma-dangle": 0,
+    "react/prefer-stateless-function": 0,
+    "spaced-comment": 1,
+    "no-underscore-dangle": 0,
+    "no-extraneous-dependencies": 0
+  },
+  "globals": {
+    "$": true,
+    "THREE": true,
+    "window": true,
+    "document": true
+  }
+}
