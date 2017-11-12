@@ -3,9 +3,7 @@
 const LightManager = require('./light-manager');
 const CameraManager = require('./camera-manager');
 const Planet = require('./planet');
-const ControlManager = require('./control-manager');
-
-const orbitalControls = require('./lib/orbital-controls');
+require('./lib/orbital-controls');
 
 const GAME_FPS = 50;
 
@@ -19,28 +17,21 @@ class VisualManager {
     this.renderer = null;
   }
 
-  initialize(_player) {
-    console.log('Visual Manager initialized');
+  initialize() {
     visualManager = this;
-
     this.renderer = null;
     this.scene = new THREE.Scene();
-
     this.previousPlayerState = {};
-
     this.loops = 0;
     this.skipTicks = 1000 / GAME_FPS;
     this.maxFrameSkip = 10;
     this.nextGameTick = (new Date()).getTime();
 
-    // this.world = new World(this.scene);
     this.planet = new Planet(this.scene);
     this.lightManager = new LightManager(this.scene);
-    this.controlManager = new ControlManager(this);
     this.cameraManager = new CameraManager(this.scene, this);
     this.initializeGraphics();
 
-    // this.world.initialize();
     this.planet.initialize();
     this.render();
   }
@@ -67,10 +58,8 @@ class VisualManager {
 
     document.getElementById(VISUAL_AREA_DIV_ID).appendChild(this.renderer.domElement);
 
-
-
-    let controls = THREE.OrbitControls(this.cameraManager.camera, canvasElement);
-    // controls.addEventListener( 'change', render ); // remove when using animation loop
+    document.body.oncontextmenu = () => false;
+    THREE.OrbitControls(this.cameraManager.camera, canvasElement);
   }
 
   render() {
@@ -96,7 +85,6 @@ class VisualManager {
   }
 
   update() {
-    visualManager.controlManager.update();
     this.cameraManager.update();
     this.planet.update();
   }

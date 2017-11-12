@@ -28,9 +28,7 @@ class CameraManager {
     this.moveBackward = this.moveBackward.bind(this);
   }
 
-  update() {
-
-  }
+  update() { }
 
   _updateCameraDebugInfo() {
     $('#camera-data').html(`(${this.camera.position.x},${this.camera.position.y},${this.camera.position.z})`);
