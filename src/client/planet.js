@@ -1,11 +1,15 @@
 'use strict';
 
 const ENABLE_ROTATION = false;
+const DEFAULT_YEAR = 2014;
 
 class Planet {
   constructor(_scene) {
     this.scene = _scene;
     this.createSkyBox();
+
+    this.selectedYear = DEFAULT_YEAR;
+    this.smokeMaterials = [];
   }
 
   createSkyBox() {
@@ -18,7 +22,7 @@ class Planet {
 
   initialize() {
     this.initializeEarth();
-    this.initializeSmokeMap();
+    this.initializeSmokeMaps();
   }
 
   initializeEarth() {
@@ -36,11 +40,20 @@ class Planet {
     this.scene.add(this.earthMesh);
   }
 
-  initializeSmokeMap() {
-    const smokeGeometry = new THREE.SphereGeometry(0.51, 32, 32);
-    const texturePath = 'assets/sprites/years/year_2014.png';
+  initializeSmokeMaps() {
+    this.initializeSmokeMaterials();
+    this.initializeSmokeMap(DEFAULT_YEAR);
+  }
 
-    this.smokeMaterial = new THREE.ShaderMaterial({
+  initializeSmokeMaterials() {
+    for (let i = 1990; i < 2015; i += 1) {
+      this.smokeMaterials[i] = Planet.initializeSmokeMaterial(i);
+    }
+  }
+
+  static initializeSmokeMaterial(year) {
+    const texturePath = `assets/sprites/years/year_${year}.png`;
+    const smokeMaterial = new THREE.ShaderMaterial({
       uniforms: {
         bufferTexture: { type: 't', value: THREE.ImageUtils.loadTexture(texturePath) },
         time: { type: 'f', value: 0.0 },
@@ -54,19 +67,24 @@ class Planet {
       fragmentShader: document.getElementById('fragment-shader-smoke').textContent
     });
 
-    this.smokeMesh = new THREE.Mesh(smokeGeometry, this.smokeMaterial);
+    return smokeMaterial;
+  }
+
+  initializeSmokeMap(year) {
+    const smokeGeometry = new THREE.SphereGeometry(0.51, 32, 32);
+    this.smokeMesh = new THREE.Mesh(smokeGeometry, this.smokeMaterials[year]);
     this.scene.add(this.smokeMesh);
+  }
+
+  selectSmokeMap(year) {
+    this.smokeMesh.material = this.smokeMaterials[year];
   }
 
   update() {
     if (ENABLE_ROTATION) {
       this.earthMesh.rotation.y += 0.002;
       this.smokeMesh.rotation.y += 0.002;
-      // this.smokeMesh.rotation.y += 0.001;
     }
-
-    // this.smokeMaterial.uniforms.time.value += 0.001;
-    this.smokeMaterial.uniforms.time.value += 0.0025;
   }
 }
 

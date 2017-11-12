@@ -15,6 +15,9 @@ let visualManager;
 class VisualManager {
   constructor() {
     this.renderer = null;
+
+    // slider props
+    this.previousValue = 2014;
   }
 
   initialize() {
@@ -33,6 +36,7 @@ class VisualManager {
     this.initializeGraphics();
 
     this.planet.initialize();
+    this.initializeSlider();
     this.render();
   }
 
@@ -66,6 +70,24 @@ class VisualManager {
       this.cameraManager.camera.updateProjectionMatrix();
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     }, false);
+  }
+
+  initializeSlider() {
+    // const slider = document.getElementById('year-range');
+    // Update the current slider value (each time you drag the slider handle)
+    $('#year-range').on('input change', () => {
+      const value = $('#year-range').val();
+      if (this.previousValue !== value) {
+        let displayValue = $('#year-range').val();
+        if (displayValue === '2014') {
+          displayValue = 'Present';
+        }
+        $('#current-year').html(displayValue);
+        this.planet.selectSmokeMap(value);
+      }
+
+      this.previousValue = value;
+    });
   }
 
   render() {
