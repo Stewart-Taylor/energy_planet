@@ -60,6 +60,12 @@ class VisualManager {
 
     document.body.oncontextmenu = () => false;
     THREE.OrbitControls(this.cameraManager.camera, canvasElement);
+
+    window.addEventListener('resize', () => {
+      this.cameraManager.camera.aspect = window.innerWidth / window.innerHeight;
+      this.cameraManager.camera.updateProjectionMatrix();
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+    }, false);
   }
 
   render() {

@@ -1,9 +1,11 @@
 'use strict';
 
 const index = require('./home');
+const sources = require('./sources');
 
 const routes = (app) => {
   app.use('/', index);
+  app.use('/sources', sources);
 };
 
 const errorRoutes = (app) => {

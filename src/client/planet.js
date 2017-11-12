@@ -10,7 +10,8 @@ class Planet {
 
   createSkyBox() {
     const skyBoxGeometry = new THREE.BoxGeometry(10, 10, 10);
-    const skyBoxMaterial = new THREE.MeshBasicMaterial({ color: '#111', side: THREE.BackSide });
+    const skyBoxMaterial = new THREE.MeshBasicMaterial({ color: '#fff', side: THREE.BackSide });
+    skyBoxMaterial.map = THREE.ImageUtils.loadTexture('assets/sprites/Starscape.png');
     const skyBox = new THREE.Mesh(skyBoxGeometry, skyBoxMaterial);
     this.scene.add(skyBox);
   }
