@@ -8,10 +8,10 @@ const blend = require('blend');
 const DATA_PATH = '../../energy_data/energy_data.csv';
 const YEAR_BASE_COLUMN = 58; // 2014
 const YEAR_BASE = 2014; // 2014
-// const YEAR_ROW = 34; // 1990
 
 const BLUR_SIZE = 5;
 const DEBUG_MODE = false;
+const SINGLE_YEAR = false;
 
 /*
  * Creates a map image of the country based on renewable energy usage
@@ -148,13 +148,13 @@ function processYear(year) {
  */
 function start() {
   processYear(2014);
-  // if (DEBUG_MODE) {
-  //   processYear(2014);
-  // } else {
-  //   for (let i = 1990; i < 2015; i += 1) {
-  //     processYear(i);
-  //   }
-  // }
+  if (DEBUG_MODE || SINGLE_YEAR) {
+    processYear(2014);
+  } else {
+    for (let i = 1990; i < 2015; i += 1) {
+      processYear(i);
+    }
+  }
 }
 
 start();

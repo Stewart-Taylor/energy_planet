@@ -11,6 +11,7 @@
   </div>
   <canvas id='display-canvas'></canvas>
 
+  <% include year-selector.ejs %>
   <% include footer.ejs %>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,4 +19,10 @@
   <script src="/assets/dist/main.js"></script>
 
   <script src="https://www.nodeknockout.com/entries/335-stewart/vote.js" type="text/javascript"></script>
+
+
+  <script>
+    $('.hb-link img').attr('src', 'https://hackbit-nko2017.s3.amazonaws.com/images/nko-logo.png');
+    $('.hb-vote-btn').css('margin-top', '10px');
+  </script>
 </div>

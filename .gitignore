@@ -30,8 +30,7 @@ build/Release
 *.DS_Store
 
 # Dist
-dist
-src/server/assets/dist
+
 
 # Dependency directories
 node_modules
@@ -50,9 +49,9 @@ build.zip
 package-lock.json
 
 # Frontend libraries
-bower_components
-src/server/assets/_css
-src/server/assets/_js
+# bower_components
+# src/server/assets/_css
+# src/server/assets/_js
 
 # Temporary country files
 temp
